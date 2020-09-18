@@ -11,9 +11,10 @@ namespace Vectors
         {
             public int x;
             public int y;
+            public int z;
         }
 
-        static Point[] GetPoints(int n=100)
+        static Point[] GetPoints(int n=5)
         {
             Point[] points = new Point[n];
 
@@ -22,7 +23,8 @@ namespace Vectors
                 points[i] = new Point
                 {
                     x = rand.Next(1, 100),
-                    y = rand.Next(1, 100)
+                    y = rand.Next(1, 100),
+                    z = rand.Next(1, 100)
                 };
             }
 
@@ -33,7 +35,8 @@ namespace Vectors
         {
             int width = Math.Abs(A.x) - Math.Abs(B.x);
             int height = Math.Abs(A.y) - Math.Abs(B.y);
-            return Math.Sqrt(width * width + height * height);
+            int depth = Math.Abs(A.z) - Math.Abs(B.z);
+            return Math.Sqrt(width * width + height * height + depth * depth);
         }
 
         static double ShortestDistance()
